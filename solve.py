@@ -1,10 +1,12 @@
-# Задача 3: Рекурсивная последовательность
-f = [1, 3]
-a = [1, 3]
-while len(a) <= 40:
-    next_val = 5 * f[-1] + f[-2]
-    f.append(next_val)
-    if next_val % 2 == 1:
-        a.append(next_val)
+# Задача 4: Обратная функция g(n)
+def f(n):
+    return int(str(n)[::-1])
 
-print("A[39] =", a[39])
+def g(n):
+    return f(f(n)) / n
+
+unique = set()
+for n in range(2, 1030):
+    unique.add(g(n))
+
+print("Количество уникальных значений функции g(n):", len(unique))
